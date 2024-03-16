@@ -1,0 +1,144 @@
+body {
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  background-image: url('https://img.freepik.com/free-vector/lightened-luxury-sedan-car-against-night-city-with-headlamps-rear-tail-lights-lit_1284-28804.jpg?w=826&t=st=1710619930~exp=1710620530~hmac=bad39699bb1f70c10ad7b5904cf2a37fb734a30f0fae48c687e2a134caa6aa6c');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard {
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
+}
+
+.phase {
+  position: relative; /* Add position relative to .phase */
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+  background-color: rgba(0, 0, 0, 0.5); /* Add background color with transparency for readability */
+  margin: 0 10px; /* Add margin to create a gap between phases */
+}
+
+/* Common styles for the arrows */
+.phase::before,
+.phase::after {
+  content: '';
+  position: absolute;
+  border: solid transparent;
+  border-width: 10px;
+}
+
+/* Desktop view: Arrows between phases from left to right */
+.timeline .phase + .phase::before {
+  border-left-color: #ffffff;
+  border-right: none;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -20px; /* Adjust positioning of the arrow */
+}
+
+.timeline .phase::after {
+  border-left-color: transparent;
+  border-right-color: #ffffff;
+  border-top: none;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -20px; /* Adjust positioning of the arrow */
+}
+
+/* Mobile view: Arrows between phases from top to bottom */
+@media (max-width: 768px) {
+  .timeline .phase + .phase::before {
+    border-top-color: #ffffff;
+    border-bottom: none;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -20px; /* Adjust positioning of the arrow */
+  }
+  
+  .timeline .phase::after {
+    border-top-color: transparent;
+    border-bottom-color: #ffffff;
+    border-left: none;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px; /* Adjust positioning of the arrow */
+  }
+}
+
+.phase:hover {
+  background-color: rgba(0, 0, 0, 0.7); /* Darken the background color on hover */
+}
+
+.phase h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.phase ul {
+  padding: 0;
+  margin: 10px 0;
+  list-style-type: none;
+}
+
+.phase ul li {
+  cursor: pointer;
+  margin: 5px 0;
+  transition: color 0.3s;
+}
+
+.phase ul li:hover {
+  color: #4285f4;
+}
+
+.details {
+  margin-top: 40px;
+}
+
+.details-content {
+  background-color: rgba(0, 0, 0, 0.8); /* Add background color with transparency for readability */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.details h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.details p {
+  color: #ccc;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .phase {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
